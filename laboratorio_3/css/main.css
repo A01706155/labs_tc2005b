@@ -20,3 +20,21 @@ h2 {
     margin-top: 1rem;
     padding-top: 1rem;
 }
+
+a {
+    color:#ff6685; 
+    font-weight:bold;
+}
+
+code, pre{
+    background: #eee;
+}
+
+code {
+    padding: 2px 4px;
+    vertical-align: text-bottom;
+}
+
+pre {
+    padding: 1rem;
+}
