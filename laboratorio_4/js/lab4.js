@@ -1,5 +1,6 @@
 ej1()
 ej2()
+ej5()
 
 function ej1 (){
     
@@ -17,7 +18,7 @@ function ej1 (){
 
 }
 
-function Ejercicio2(){
+function ej2(){
     // Generar suma y resultado en memoria
     let random1 = Math.floor(Math.random() * 15);
     let random2 = Math.floor(Math.random() * 15);
@@ -36,4 +37,18 @@ function Ejercicio2(){
     else{
         alert("¡Así no!, el resultado era " + sum);
     }
+}
+
+function ej5(){
+    
+    // Preguntar por el número
+    let numero = prompt("Bienvenido al mundo de los espejos, dame un número:");
+    let numero_Inverso = "";
+
+    for (let i = numero.length - 1; i >= 0; i--){
+        numero_Inverso = numero_Inverso + numero[i];
+    }
+
+    console.log("Numero dado = " + numero + "\nnumero inverso = " + numero_Inverso);
+    alert("Numero dado = " + numero + "\nnumero inverso = " + numero_Inverso);
 }
