@@ -8,7 +8,7 @@ function ej1 (){
     let n = prompt("Ingresa un número:");
     
     // Comenzar a hacer la estructura de la tabla
-    document.write("<table> <tr> <td>Numero</td> <td> ² </td> <td> ³ </td>");
+    document.write("<table> <tr> <td>n</td> <td> ² </td> <td> ³ </td>");
     
     // Ciclo para generar la tabla
     for (let i = 0; i <= n; i++){
