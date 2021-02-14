@@ -42,13 +42,14 @@ function ej2(){
 function ej5(){
     
     // Preguntar por el número
-    let numero = prompt("Bienvenido al mundo de los espejos, dame un número:");
-    let numero_Inverso = "";
+    let num = prompt("Bienvenido al mundo de los espejos, dame un número:");
+    let num_inv = "";
 
-    for (let i = numero.length - 1; i >= 0; i--){
-        numero_Inverso = numero_Inverso + numero[i];
+    // Invertir
+    for (let i = num.length - 1; i >= 0; i--){
+        numero_inv += num[i];
     }
 
-    console.log("Numero dado = " + numero + "\nnumero inverso = " + numero_Inverso);
-    alert("Numero dado = " + numero + "\nnumero inverso = " + numero_Inverso);
+    // Devolver valor
+    alert("El espejo dice que tu número es " + num);
 }
