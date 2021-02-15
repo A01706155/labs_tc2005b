@@ -1,10 +1,11 @@
 // Se adaptó el funcionamiento a HTML
 
-ej1()
-ej2()
-ej3()
-ej4()
-ej5()
+//ej1()
+//ej2()
+//ej3()
+//ej4()
+//ej5()
+ej6()
 
 function ej1 (){
 
@@ -140,7 +141,7 @@ function ej4(){
         
         // Se calcula el promedio y devolvemos el resultado por ciclo
         promedio = suma / nums_R;
-        document.write("El promedio del renglon " + n_renglon + " es = " + promedio + "<p></p>");
+        document.write("El promedio del renglon " + n_renglon + " es " + promedio + "<p></p>");
     }
 
         // Fin para lista
@@ -167,4 +168,43 @@ function ej5(){
 
     // Fin para lista
     document.write("</p></li>")
+}
+
+// Para este ejercicio, sólamente los datos de entrada son dos medidas y todo esto generará áreas de figuras posibles
+function ej6(){
+
+    function Figura(lado_a, lado_b){
+        this.lado_a = lado_a;
+        this.lado_b = lado_b;
+        
+        this.cuadrado = function() {
+          document.write("Existen dos áreas de cuadrado posibles: " + lado_a*lado_a + " y " + lado_b*lado_b);
+        };
+        this.rectangulo = function(){
+          document.write("El área del rectángulo es de: " + lado_a*lado_b);
+        };
+        this.triangulo = function(){
+          document.write("El área del triángulo es de " + ((lado_a*lado_b)/2));
+        };
+        this.circulo = function(){
+          document.write("Existen dos áreas de círculos posibles: " + Math.pow(3.14*(lado_a/2),2) + " y " + Math.pow(3.14*(lado_b/2),2));
+        };
+        this.rombo = function(){
+          document.write("El área del rombo es de " + (lado_a*lado_b)/2);
+        };
+        this.pol_reg = function(){
+          document.write("El área del polígono regular es de " + (lado_a*lado_b)/2);
+        };
+      
+    }
+    
+    var figura1 = new Figura(5, 10);
+    
+    figura1.cuadrado();
+    figura1.rectangulo();
+    figura1.triangulo();
+    figura1.circulo();
+    figura1.rombo();
+    figura1.pol_reg();
+    
 }
