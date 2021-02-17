@@ -129,3 +129,29 @@ div.passtext{
     border: 3px solid turquoise; 
     */
 }
+
+div.storecontent {
+    color:deeppink;
+}
+
+div.storecontent div.title{
+  background-image: linear-gradient(45deg, #fff64a, #ff4800);
+  background-size: 100%;
+  background-repeat: repeat;
+  background-clip:content-box;
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+
+  font-size:2rem;
+  font-weight: bold;
+
+  text-align:center;
+}
+
+div.storecontent div.subtitle{
+    color:white;
+    font-weight: bold;
+    font-size:1rem;
+    
+}
