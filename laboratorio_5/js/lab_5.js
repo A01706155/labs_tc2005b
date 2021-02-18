@@ -32,11 +32,15 @@ function checkout(){
     let xone = (document.getElementById("xone").value);
 
     let total = (dc*199) + (pc*699) + (xone*399);
-
-    if (dc+pc+xone == 0){
-        alert("No has comprado ningún producto.")
+    if (dc <= -1 || pc <= -1 || xone <= -1){
+        alert("No me puedes vender productos. xD")
     }
-    else {
-        document.getElementById("confirmacion").innerHTML = "Has comprado " + dc + " Dreamcasts, " + pc + " PCs Gamer y " + xone + " Xbox ones por " + total + " dólares.";
+    else{
+        if (dc+pc+xone == 0){
+            alert("No has comprado ningún producto.")
+        }
+        else {
+            document.getElementById("confirmacion").innerHTML = "Has comprado " + dc + " Dreamcasts, " + pc + " PCs Gamer y " + xone + " Xbox ones por " + total + " dólares.";
+        }
     }
 }

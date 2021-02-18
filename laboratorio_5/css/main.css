@@ -50,6 +50,10 @@ h2 {
     padding-top: 1rem;
 }
 
+h3 {
+    background-color: rgba(7, 3, 0, 0.747);
+}
+
 a {
     color:#ff6685; 
     font-weight:bold;
@@ -192,4 +196,13 @@ div.owo {
 
 div.owo2{
     display:inline;
+}
+
+button {
+    background-color: rgb(102, 43, 0);
+    color:cornsilk;
+    border-color: rgb(54, 23, 0);
+    width: 8rem;
+    height: 2rem;
+    font-size: 1.5rem;
 }
