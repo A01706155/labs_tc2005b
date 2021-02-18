@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +11,7 @@
 </head>
 
 <body>
-    <script src="js/lab5.js"></script>
+    <script src="js/lab_5.js"></script>
     <header>
         <h1>Lab 5</h1>
         <p>
@@ -34,9 +35,41 @@
         
         <div class="storecontent">
             <div class="title">¡Bienvenido a la FoxWare store!</div>
-            <div class="subtitle">¿Qué deseas comprar? 🦊</div>
+            <p><div class="subtitle">¿Qué deseas comprar? 😀</div></p>
+                
+                <div class="cuadrito">
+                    <div class="polaroid">
+                        <img src="https://images.unsplash.com/photo-1605134550917-5fe8cf25a125?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80">
+                        <div class="container">
+                        <p>Dreamcast</p>
+                        <p><input class="compras" type="number" id="dreamcast"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cuadrito">
+                    <div class="polaroid">
+                        <img src="https://images.unsplash.com/photo-1587202372583-49330a15584d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80">
+                        <div class="container">
+                        <p>PC</p>
+                        <p><input class="compras" type="number" id="pc"></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cuadrito">
+                    <div class="polaroid">
+                        <img src="https://images.unsplash.com/photo-1602610411365-76e8c2a88e18?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2133&q=80">
+                        <div class="container">
+                        <p>Xbox One</p>
+                        <p><input class="compras" type="number" id="xone"></p>
+                        </div>
+                    </div>
+                </div>
+                <p><button type="button" onclick="checkout()">Checkout</button></p>
+                <h3 id="confirmacion"></h3>
+            </div>
         </div>
-
     </main>
     
     <footer class="footer_atrib">

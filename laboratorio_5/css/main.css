@@ -88,16 +88,23 @@ table {
 
 
 input{
-    width:15rem;
+    width:100%;
+    height:2rem;
+    font-size: 1.5rem;
+}
+
+input.compras {
+    width:20%;
     height:2rem;
     font-size: 1.5rem;
 }
 
 div.passcontent{
-    position:relative;
-    left: 39%;
-    width: 19rem;
-    top: 40px;
+    display: block;
+    width: 15.9rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
 }
 
 div.passcontent button{
@@ -107,7 +114,7 @@ div.passcontent button{
     font-size:1.5rem;
     text-align:center;
     position: relative;
-    left: 50%;
+    left: 61%;
     background-color: aquamarine;
     color:black;
 }
@@ -131,7 +138,9 @@ div.passtext{
 }
 
 div.storecontent {
-    color:deeppink;
+    color:rgb(255, 217, 0);
+    font-size:1.5rem;
+    text-align: center;
 }
 
 div.storecontent div.title{
@@ -145,13 +154,42 @@ div.storecontent div.title{
 
   font-size:2rem;
   font-weight: bold;
-
-  text-align:center;
 }
 
 div.storecontent div.subtitle{
     color:white;
     font-weight: bold;
-    font-size:1rem;
-    
+    font-size:1.4rem;
+}
+
+div.cuadrito {
+    display:inline-block;
+    width: 30%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+div.polaroid {
+    background-color: rgba(0, 0, 0, 0.74);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.911), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 30px;
+}
+
+div.polaroid img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+div.container {
+    text-align: center;
+    padding: 10px 10px;
+}
+
+div.owo {
+    display:inline;
+}
+
+div.owo2{
+    display:inline;
 }
