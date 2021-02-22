@@ -2163,6 +2163,7 @@ html {
  */
 body {
   margin: 0;
+  background-image:url(https://images.unsplash.com/photo-1566041510639-8d95a2490bfb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2126&q=80)
 }
 
 /**
@@ -9085,4 +9086,40 @@ input[type=range]::-ms-thumb {
     text-align: center;
     margin-top: 1.2rem;
   }
+}
+
+div.passcontent{
+  display: block;
+  width: 21.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  background-color: #68686828;
+  padding-left:50px;
+  padding-right:50px;
+  padding-top:10px;
+  padding-bottom:10px;
+  border-radius: 20px;
+}
+
+div.passcontent button{
+  right:40px;
+  width:6rem;
+  height:2rem;
+  font-size:1.5rem;
+  text-align:center;
+  position: relative;
+  left: 58%;
+  border-color: #ec407a;
+  color:black;
+  border-radius: 13px;
+}
+
+div.passcontent button:focus{
+  background-color:#fa7478;
+  color:white;
+}
+
+div.passcontent h3 {
+  font-size: 1.5rem;
 }

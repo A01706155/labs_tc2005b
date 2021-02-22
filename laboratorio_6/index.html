@@ -29,6 +29,22 @@
       <h2>App Web:</h2>
       <p><h5>Validador de caracteres en contraseña:</h5></p>
 
+      <div class="passcontent">
+        <h3>Ingresa tu contraseña:</h3>
+        <p><input type="password" id="contrasena" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"></p>
+        <p><h3>Repite tu contraseña:</h3></p> 
+        <p><input type="password" id="contrasena2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"></p>
+        <p><button type="button" onclick="validar()">Validar</button></p>
+    </div>
+      
+      <div id="message">
+        <h3>Password must contain the following:</h3>
+        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+        <p id="number" class="invalid">A <b>number</b></p>
+        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+      </div>
+
       <h2>Preguntas y respuestas:</h2>
       <dl>
           <ol>
