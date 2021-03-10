@@ -1,5 +1,5 @@
-//¿Qué es json?
-//json: javascript object notation, terminar la descripción PENDIENTE
+//¿Qué es json? (describir)
+//json: javascript object notation, me parece una lista con toda la información de las librerías que tenemos funcionando junto a un auto-actualizador para siempre estar en la última versión de las mismas.
 //{nombre_atributo: valor} - ????????
 
 console.log('¡Hola mundo!');
