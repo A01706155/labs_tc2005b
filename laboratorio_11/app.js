@@ -1,38 +1,44 @@
-console.log('¡Hola!')
-console.log('¡Genial!')
+//¿Qué es json?
+//json: javascript object notation, terminar la descripción PENDIENTE
+//{nombre_atributo: valor} - ????????
 
-// ¿Qué es JSON?
-// json: java script object notation
-// {nombre_atributo: valor}
+console.log('¡Hola mundo!');
 
+// "Librerías"
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
-//Middleware
+// Para ir a rutas externas se define una variable con la ubicación del js al respecto
+const personajes = require('./routes/personajes');
+const aboutfnf = require('./routes/about-fnf')
+const imagenes = require('./routes/images')
+const videos = require('./routes/videos')
+
+// Middleware
+app.use(bodyParser.urlencoded({extended: false}));
+
 app.use((request, response, next) => {
     console.log('Middleware!');
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-app.use((request, response, next) => {
-    console.log('Otro middleware!');
-    response.send('¡Hola mundo!'); //Manda la respuesta
+// Primero se establece este para más prioridad
+app.use('/about-fnf', aboutfnf);
+app.use('/personajes', personajes);
+app.use('/imagenes', imagenes);
+app.use('/videos', videos);
+
+// Ruta principal
+app.get('/', (request, response, next) => {
+    console.log('Bienvenido');
+    response.send('<h1>Videojuegos:</h1> <body><h3>Friday Night Funkin:</h3></body><ol><li><a href="/about-fnf">About the game</a><li><a href="/personajes">Personajes</a><li><a href="/imagenes">Imágenes</a><li><a href="/videos">Videos</a></ol>')
 });
 
-app.use('/ruta', (request, response, next) => {
-    response.send('Respuesta de la ruta "/ruta"'); 
-});
-
-app.use('/ruta2', (request, response, next) => {
-    response.send('Respuesta de la ruta "/ruta2"'); 
-});
-
-const bodyParser = require('body-parser');
-
-app.use(bodyParser.urlencoded({extended: false}));
-
-app.use('/alguna-ruta', (request, response, next) => {
-    console.log(request.body);
-});
+// Fallback para rutas no conocidas
+app.use( (request, response, next) => {
+    response.status(404); // Envía un código de estátus al navegador
+    response.send('<h1>¿Qué buscas?, amigo. <p> <img width=30%; src="https://static3.lasprovincias.es/www/multimedia/202010/10/media/cortadas/gato-ksgH-U1204237773070s-1248x770@Las%20Provincias.jpg"> <h2> Error 404!'); //Manda la respuesta
+} );
 
 app.listen(3000);
