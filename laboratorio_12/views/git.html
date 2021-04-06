@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    
+</head>
+<body>
+    
+    <nav>
+        <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Videojuegos</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#git">Comandos git</a></li>
+        </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section>
+            <div id="link">
+                <div class="row">
+                    <div class="col l12 m12 s12"><h3>Zelda</h3></div>
+                </div>
+
+                <div class="row">
+                    <div class="col l6 m6 s12">Link</div>
+                    <div class="col l6 m6 s12">Items:</div>
+                </div>
+                <div class="row">
+                    <div class="col l12 m12 s12">
+                        <ul>
+                            <div id="espada"><span class="empty">Link no tiene items en este momento, por lo tanto no puede luchar</span></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l3 m6 s12">
+                    <div id="boton">
+                            <button id="acciones_link" onclick="dar_espada()">Darle una espada a Link</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l3 m12 s12">
+                    <div id="link_luchando"></div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <br><br>
+        <section>
+            <input id="password" type="password">
+        </section>
+        <section id="git">
+            <h2>Git</h2>
+            <p>
+                Comandos de git para actualizar el repositorio:
+            </p>
+            <ol>
+                <li><strong>git add -A</strong>: Sirve para rastrear los archivos y agregar los cambios la transacción.</li>
+                <li><strong>git commit -m "mensaje corto y descriptivo del cambio"</strong>: Sirve para completar la transacción y guardar los cambios de manera local.</li>
+                <li><strong>git push</strong>: Sirve para "empujar" todas las transacciones del repositorio local al repositorio remoto.</li>
+            </ol>
+            <p>Entonces, cada vez que trabajemos, debemos escribir en la consola:</p>
+            <code><pre>git add -A
+git commit -m "mensaje corto y descriptivo del cambio"
+git push</pre></code>
+            <p>Comandos de git para trabajar con ramas:</p>
+            <ul>
+                <li><strong>git branch</strong>: Sirve para listar las ramas de repositorio.</li>
+                <li><strong>git checkout [nombre_rama]</strong>: Sirve para cambiarse de rama.</li>
+                <li><strong>git checkout -b [nombre_rama]</strong>: Sirve para crear una nueva rama y cambiarse a la nueva rama.</li>
+            </ul>
+        </section>
+        <h1>Esto se va a descontrolar!!!!!!!</h1>        
+        <h3>lol</h3>
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text"></h5>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          © 2021 Generación TC2005B Construcción de software
+          </div>
+        </div>
+      </footer>
+
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/zelda.js"></script>
+</body>
+</html>
