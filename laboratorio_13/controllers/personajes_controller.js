@@ -9,10 +9,10 @@ exports.postNuevoPersonaje = (request, response, next) => {
     const nuevo_personaje = new Personaje(request.body.nombre)
     nuevo_personaje.save();
     response.redirect('/personajes');
-}
+};
 
 exports.get = (request, response, next) => {
-    response.render('personajes', 
-    {lista_personajes: Personaje.fetchAll(),
+    response.render('personajes', {
+        lista_personajes: Personaje.fetchAll(),
     });
 };

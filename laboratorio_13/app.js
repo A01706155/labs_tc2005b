@@ -47,7 +47,7 @@ app.get('/', (request, response, next) => {
 app.use( (request, response, next) => {
     //response.statusCode = 404;
     response.status(404);
-    response.send('Recurso no encontrado, Link está perdido en el tiempo'); //Manda la respuesta
+    response.send('Error 404.'); //Manda la respuesta
 } );
 
 app.listen(3000);
