@@ -3,6 +3,8 @@ const Imagen = require('../models/imagen')
 exports.get = (request, response, next) =>{
     response.render('imagenes', {
         lista_imagenes: Imagen.fetchAll(),
+        titulo: 'Titulo',
+        isLoggedIn: request.session.isLoggedIn === true ? true : false,
     }); 
 };
 

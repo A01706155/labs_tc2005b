@@ -25,6 +25,8 @@ exports.get = (request, response, next) => {
     console.log(request.cookies.ult_personaje);
 
     response.render('personajes', {
+        isLoggedIn: request.session.isLoggedIn === true ? true : false,
         lista_personajes: Personaje.fetchAll(),
+        titulo: 'Personajes',
     });
 };
