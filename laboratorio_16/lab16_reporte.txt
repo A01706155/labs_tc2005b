@@ -1,0 +1,58 @@
+-------------------------- Reporte laboratorio 16 --------------------------
+
+Manolo Ramírez Pintor
+A01706155
+
+1. Revisa el contenido de la tabla materiales y determina si existe alguna inconsistencia en el contenido de la tabla. ¿Cuál es? ¿A qué se debe?
+    Todas las claves se encuentran en órden excepto por la última clave que añadimos, está hasta el final.
+
+2. ¿Qué ocurrió?
+    Error: Violación en la restricción de la llave primaria.
+
+3. ¿Qué información muestra esta consulta?
+    La ubicación de la llave primaria y el nombre del objeto.
+
+4. ¿Qué sentencias utilizaste para definir las llaves primarias?
+    - ALTER TABLE Proveedores add constraint llaveProveedores PRIMARY KEY (RFC).
+    - ALTER TABLE Proyectos add constraint llaveProyectos PRIMARY KEY (Numero).
+
+5. ¿Qué sentencias utilizaste para definir el constrait de Entregan?
+    - ALTER TABLE Entregan add constraint llaveEntregan PRIMARY KEY (Clave, RFC, Numero, Fecha).
+
+6. ¿Qué particularidad observas en los valores para clave, rfc y numero?
+    Los valores son cero porque así los definimos.
+
+7. ¿Cómo responde el sistema a la inserción de este registro?
+    El valor se va hasta a mero arriba, con esto podemos tener incosistencias en la base.
+
+8. ¿Qué significa el mensaje que emite el sistema?
+    Que la inserción tiene conflicto o un problema con una llave foránea.
+
+9. ¿Qué significado tiene la sentencia anterior?
+    Que los datos agregados crean incosistencias con una o más llaves.
+
+10. ¿Qué significan las columnas de esas consultas?
+    - constraint_type: Datos de las llaves, restricción.
+    - constraint_name: El nombre de la llave.
+    - delete_action: Acciones eliminadas.
+    - update_action: Cambio en las acciones.
+    - status_enable: El estado de la habilitación.
+    - status_for_replication: El estado de replicación.
+    - constrain_keys: Datos de las llaves junto a referencias.
+
+11. ¿Qué uso se le está dando a GETDATE(.?
+    Obtiene la fecha del sistema.
+
+12. ¿Tiene sentido el valor del campo de cantidad?
+    No porque no tiene algún valor importante, es cero.
+
+13. Intenta insertar un registro con cantidad igual o menor que 0. ¿Cómo responde el sistema?
+    Da un error y no se hace ningún cambio en la tabla.
+
+14. ¿Qué significa el mensaje?
+    Conflicto con la restricción condicional que indica que sea mayor que cero.
+
+15. Integridad referencial
+    Es una limitación de una base de datos relacional que evita la inserción de datos inconsistentes. Para ello existen las reglas de integridad referencial al momento de crear la relación entre tablas en un gestor de datos.
+
+    Fuente: ¿Qué es la integridad referencial y cómo puede evitar estos problemas un programador? | Techlandia. (2013) Techlandia. https://techlandia.com/integridad-referencial-evitar-estos-problemas-programador-info_262424/

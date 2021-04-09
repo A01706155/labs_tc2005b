@@ -1,0 +1,22 @@
+-------------------------- Reporte laboratorio 15 --------------------------
+
+Manolo Ramírez Pintor
+A01706155
+
+1. ¿Que muestra la instrucción sp_help materiales?
+    La información que contiene la tabla Materiales, las relaciones y el tipo de dato de cada columna.
+
+2. ¿Qué efecto tuvo esta acción?
+    Creamos todas las tablas al mismo tiempo en nuestra base de datos.
+
+3. ¿Qué utilidad tiene esta manera de ejecutar los comandos de SQL?
+    Es más rápido y eficiente porque nos permite crear las tablas de forma simultánea.
+
+4. ¿Qué relación tienen con las tablas de la base de datos? (checa su contenido.
+    Cada archivo lleva lo que está contenido en cada una de las tablas creadas.
+
+5. ¿Qué relación tiene el contenido de este archivo (materiales.sql. con el formato en que se encuentran los datos en el archivo materiales.csv?
+    Es muy similar, de hecho tiene las mismas separaciones que en el .csv que importamos. Significa que los datos se importan igual al tener un archivo .csv
+
+6. ¿Qué sucedió?
+    Los datos de nuestro .csv se cargaron o importaron a nuestro .sql de la misma forma en como se ven los datos en el .csv
