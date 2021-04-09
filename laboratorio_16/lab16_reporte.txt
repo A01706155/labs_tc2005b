@@ -55,4 +55,4 @@ A01706155
 15. Integridad referencial
     Es una limitación de una base de datos relacional que evita la inserción de datos inconsistentes. Para ello existen las reglas de integridad referencial al momento de crear la relación entre tablas en un gestor de datos.
 
-    Fuente: ¿Qué es la integridad referencial y cómo puede evitar estos problemas un programador? | Techlandia. (2013) Techlandia. https://techlandia.com/integridad-referencial-evitar-estos-problemas-programador-info_262424/
+    Fuente: Techlandia. (2013). ¿Qué es la integridad referencial y cómo puede evitar estos problemas un programador?. Abril, 2021, de Techlandia Sitio web: https://techlandia.com/integridad-referencial-evitar-estos-problemas-programador-info_262424/
