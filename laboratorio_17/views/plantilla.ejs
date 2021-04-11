@@ -1,0 +1,14 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<% if (isLoggedIn === false) { %>
+  <meta http-equiv="refresh" content="0; URL=/users/login"/>
+<% } %>
+
+  <main class="container">
+
+    <%- contenido %>
+
+  </main>
+
+<%- include('partials/footer.ejs') %>

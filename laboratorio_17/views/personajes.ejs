@@ -1,0 +1,22 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<% if (isLoggedIn === false) { %>
+  <meta http-equiv="refresh" content="0; URL=/users/login"/>
+<% } %>
+
+  <main class="container">
+
+    <h1>Personajes</h1>
+      <ul>
+          <% for (let personaje of lista_personajes) { %>
+              <h6> <li> > <%= personaje %> </li> </h6>
+          <% } %>
+      </ul>
+
+      <a href="/"><h5>Volver</h5></a>
+    <p></p>
+
+  </main>
+
+<%- include('partials/footer.ejs') %>
