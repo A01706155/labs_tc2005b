@@ -7,11 +7,28 @@ exports.getNuevoPersonaje = (request, response, next) => {
 exports.postNuevoPersonaje = (request, response, next) => {
     console.log(request.body.nombre);
     const nuevo_personaje = new Personaje(request.body.nombre, request.body.imagen);
-    nuevo_personaje.save();
+    nuevo_personaje.save()
+        .then(() => {
+            response.setHeader('Set-Cookie', ['ult_personaje='+nuevo_personaje.nombre + '; HttpOnly']);
+            response.redirect('/personajes');
+        }).catch(err => console.log(err));
+};
 
-    response.setHeader('Set-Cookie', ['ult_personaje='+nuevo_personaje.nombre + '; HttpOnly']);
+exports.getPersonaje = (request, response, next) => {
 
-    response.redirect('/personajes');
+    const id = request.params.personaje_id;
+
+    Personaje.fetchOne(id)
+    .then(([rows, fieldData]) => {
+        response.render('personajes', { 
+            lista_personajes: rows, 
+            titulo: 'Personajes',
+            isLoggedIn: request.session.isLoggedIn === true ? true : false
+        });
+    })
+    .catch(err => {
+        console.log(err);
+    });
 };
 
 exports.get = (request, response, next) => {
@@ -24,9 +41,15 @@ exports.get = (request, response, next) => {
     console.log(request.cookies);
     console.log(request.cookies.ult_personaje);
 
-    response.render('personajes', {
-        isLoggedIn: request.session.isLoggedIn === true ? true : false,
-        lista_personajes: Personaje.fetchAll(),
-        titulo: 'Personajes',
+    Personaje.fetchAll()
+    .then(([rows, fieldData]) => {
+        response.render('personajes', { 
+            lista_personajes: rows, 
+            titulo: 'Personajes',
+            isLoggedIn: request.session.isLoggedIn === true ? true : false
+        });
+    })
+    .catch(err => {
+        console.log(err);
     });
 };

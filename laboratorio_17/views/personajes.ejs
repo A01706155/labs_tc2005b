@@ -9,6 +9,7 @@
 
     <h1>Personajes</h1>
       <div class=row>
+        
         <% for (let personaje of lista_personajes) { %>
           <div class="col s12 m4 l3">
             <div class="card small">
@@ -23,12 +24,19 @@
                   <span class="card-title grey-text text-darken-4"><%= personaje.nombre %><i class="material-icons right">close</i></span>
                   <p>Fuente de la imagen: <%= personaje.imagen %></p>
                 </div>
-              </div>
             </div>
+          </div>
         <% } %>
+
       </div>
 
-      <a href="/"><h5>Volver</h5></a>
+      <% if (isLoggedIn === true) { %>
+        <a href="/personajes/nuevo-personaje" class="waves-effect waves-light btn red"><i class="material-icons left">add</i>Añadir personaje</a>
+      <% } %>
+
+      <p></p>
+
+      <a href="/" class="waves-effect waves-light btn green"><i class="material-icons left">arrow_back</i>Volver</a>
     <p></p>
 
   </main>

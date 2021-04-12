@@ -10,28 +10,23 @@ module.exports = class Personaje {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        personajes.push(this);
+        return db.execute('INSERT INTO personajes (nombre, imagen) VALUES (?, ?)',
+            [this.nombre, this.imagen]
+        );
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
         
-        const personajes = [];
+        return db.execute('SELECT * FROM personajes');
+
+    }
+
+    // Este médoto servirá para devolver un objeto del almacenamiento persistente.
+    static fetchOne(id) {
         
-        db.execute('SELECT * FROM personajes')
-            .then(([rows, fieldData]) => {
-                for (let personaje of rows){
-                    // console.log(personaje.nombre);
-                    personajes.push({nombre: personaje.nombre,
-                                     imagen: personaje.imagen});
-                }
-                // console.log(rows);
-            })
-            .catch(err => {
-                console.log(err);
-            });
-            
-        return personajes;
+        return db.execute('SELECT * FROM personajes WHERE id=?', [id] );
+
     }
 
 }

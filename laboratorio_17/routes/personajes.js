@@ -10,6 +10,8 @@ router.get('/nuevo-personaje', personajesController.getNuevoPersonaje);
 
 router.post('/nuevo-personaje', personajesController.postNuevoPersonaje);
 
+router.get('/:personaje_id', personajesController.getPersonaje);
+
 router.use('/', personajesController.get);
 
 module.exports = router;
