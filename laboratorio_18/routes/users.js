@@ -13,4 +13,8 @@ router.post('/login', users.postLogin);
 
 router.get('/logout', users.logout);
 
+router.get('/register', users.getRegister);
+
+router.post('/register', users.postRegister);
+
 module.exports = router;
