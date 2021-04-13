@@ -15,6 +15,9 @@ const cookieParser = require('cookie-parser')
 
 const session = require('express-session');
 
+// Para proteger rutas
+const isAuth = require('./util/is-auth');
+
 // Sirve para establecer las carpetas de view engine y views
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -51,7 +54,7 @@ app.use('/imagenes', imagenes);
 app.use('/videos', videos);
 app.use('/users', users);
 
-app.get('/', (request, response, next) => {
+app.get('/', isAuth, (request, response, next) => {
     console.log('Bienvenido');
     response.render('plantilla', {
         titulo: 'Inicio',

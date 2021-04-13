@@ -1,5 +1,8 @@
 const express = require('express');
 
+// Para proteger rutas
+const isAuth = require('../util/is-auth');
+
 const router = express.Router();
 
 const path = require('path');
@@ -11,7 +14,7 @@ router.get('/login', users.getLogin); // users/login
 
 router.post('/login', users.postLogin);
 
-router.get('/logout', users.logout);
+router.get('/logout', isAuth, users.logout);
 
 router.get('/register', users.getRegister);
 
