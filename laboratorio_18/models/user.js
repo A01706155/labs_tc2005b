@@ -29,7 +29,7 @@ module.exports = class User {
     // Este médoto servirá para devolver un objeto del almacenamiento persistente.
     static fetchOne(username, password) {
         
-        return db.execute('SELECT * FROM usuarios WHERE username=? AND password =?', [username, password] );
+        return db.execute('SELECT * FROM usuarios WHERE username=?', [username] );
 
     }
 
