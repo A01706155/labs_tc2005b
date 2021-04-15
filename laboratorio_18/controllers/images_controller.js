@@ -5,6 +5,7 @@ exports.get = (request, response, next) =>{
         lista_imagenes: Imagen.fetchAll(),
         titulo: 'Titulo',
         isLoggedIn: request.session.isLoggedIn === true ? true : false,
+        csrfToken: request.csrfToken()
     }); 
 };
 

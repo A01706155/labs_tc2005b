@@ -9,6 +9,7 @@
       <% if (error) { %>
         <h6 class="center-align red-text"><%= error %></h6>
       <% } %>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
       <label for="usuario">Usuario:</label><input type="text" name="usuario">
       <label for="password">Contraseña:</label><input type="password" name="password">
       <input type="submit" value="Ingresar">

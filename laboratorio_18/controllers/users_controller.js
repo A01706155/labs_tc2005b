@@ -8,6 +8,7 @@ exports.getLogin = (request, response, next) => {
     response.render('login', {
         titulo: 'Login',
         error: request.session.error,
+        csrfToken: request.csrfToken(),
         isLoggedIn: request.session.isLoggedIn === true ? true : false,
     });
 };

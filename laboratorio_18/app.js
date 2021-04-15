@@ -15,6 +15,10 @@ const cookieParser = require('cookie-parser')
 
 const session = require('express-session');
 
+// CSRF
+const csrf = require('csurf');
+const csrfProtection = csrf();
+
 // Para proteger rutas
 const isAuth = require('./util/is-auth');
 
@@ -42,6 +46,9 @@ app.use(session({
 
 //Para acceder a los recursos de la carpeta public
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Protección CrossSiteRF (Evita que copien tu página a otro lado y hagan cosas maliciosas)
+app.use(csrfProtection);
 
 app.use((request, response, next) => {
     console.log('Middleware!');
