@@ -230,7 +230,7 @@ SELECT * FROM Materiales
 
 -- ¿Qué consulta usarías para obtener el importe de las entregas es decir, el total en dinero de lo entregado, basado en la cantidad de la entrega y el precio del material y el impuesto asignado?
 
-    SELECT Descripcion, SUM(cantidad*(precio+PorcentajeImpuesto)) as 'total'
+    SELECT Descripcion, SUM(Cantidad * (Precio + PorcentajeImpuesto)) as 'Total de entregas'
     FROM Materiales M, Entregan E
     WHERE M.Clave = E.Clave
     GROUP BY Descripcion
@@ -242,7 +242,7 @@ SELECT * FROM Materiales
 */
 
 -- 1
-CREATE view Consulta4(Clave) as
+CREATE view Consulta_1 (Clave) as
 SELECT clave FROM Entregan WHERE numero=5001
 
 CREATE view Consulta5(Clave) as
@@ -256,7 +256,7 @@ WHERE Consulta4.Clave = Consulta5.Clave
 -- 2
 set dateformat dmy
 
-CREATE view Consulta6(Descripcion, Fecha) as
+CREATE view Consulta_2 (Descripcion, Fecha) as
 SELECT DISTINCT descripcion, Fecha
 FROM Entregan, Materiales
 WHERE fecha>='01/01/00'
@@ -266,7 +266,7 @@ FROM Consulta6
 WHERE fecha<'01/01/01'
 
 -- 3
-CREATE view Consulta3(Clave, RFC, Numero, Fecha, Cantidad) as
+CREATE view Consulta_3 (Clave, RFC, Numero, Fecha, Cantidad) as
 SELECT Clave,RFC,Numero,Fecha,Cantidad
 FROM Entregan
 WHERE Numero<=5010
@@ -276,7 +276,7 @@ WHERE Numero>=5000
 
 
 -- 4
-CREATE view Consulta1(RFC) as 
+CREATE view Consulta_4 (RFC) as 
 SELECT Entregan.RFC
 FROM Entregan, Proveedores
 WHERE RazonSocial LIKE 'La%' AND Entregan.RFC = Proveedores.RFC
@@ -287,7 +287,7 @@ WHERE E.RFC=C.RFC AND Numero BETWEEN 5000 AND 5010
 
 
 -- 5
-CREATE view Consulta2(Numero, Denominacion, Fecha, Cantidad) as
+CREATE view Consulta_5 (Numero, Denominacion, Fecha, Cantidad) as
 SELECT Proyectos.Numero, denominacion, fecha, Cantidad
 FROM Entregan, Proyectos
 
@@ -340,7 +340,7 @@ WHERE Descripcion LIKE '%ub%'
 
 
 -- Denominación y suma del total a pagar para todos los proyectos.
-SELECT Denominacion, sum(Cantidad*(precio+PorcentajeImpuesto)) as 'total a pagar' FROM Proyectos P, Materiales M, Entregan E
+SELECT Denominacion, sum(Cantidad*(precio+PorcentajeImpuesto)) as 'Total a pagar' FROM Proyectos P, Materiales M, Entregan E
 WHERE P.Numero = E.Numero and M.Clave = E.Clave
 group by Denominacion
 
