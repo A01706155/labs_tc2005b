@@ -13,7 +13,7 @@
     <input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>">
     <input type="text" name="buscar" id="buscar" onkeyup="buscar()">
     
-    <div class=row>
+    <div class=row id="resultados">
       
       <% for (let personaje of lista_personajes) { %>
         <div class="col s12 m4 l3">
@@ -54,18 +54,41 @@
     //El token de protección CSRF
     const csrf = document.getElementById('_csrf').value;
 
+    let data = {valor_busqueda: valor_busqueda};
+    console.log(valor_busqueda);
     //función que manda la petición asíncrona
     fetch('/personajes/buscar', {
         method: 'POST',
+        body: JSON.stringify(data),
         headers: {
-            'csrf-token': csrf
+            'csrf-token': csrf,
+            'Content-Type': 'application/json'
           },
-        body: JSON.stringify(valor_busqueda)
     }).then(result => {
         return result.json(); //Regresa otra promesa
     }).then(data => {
         //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
         console.log(data);
+        let html = '';
+        for (let personaje of data) {
+          html += '<div class="col s12 m4 l3">' + 
+                  '<div class="card small">' + 
+                      '<div class="card-image waves-effect waves-block waves-light">' +
+                        '<img class="activator" src="'+ personaje.imagen +'">' +
+                      '</div>' +
+                      '<div class="card-content">' +
+                        '<span class="card-title activator grey-text text-darken-4">' + personaje.nombre + '<i class="material-icons right">more_vert</i></span>' +
+                        '<p><a href="#">...</a></p>' +
+                      '</div>' +
+                      '<div class="card-reveal">' +
+                        '<span class="card-title grey-text text-darken-4">'+ personaje.nombre +'<i class="material-icons right">close</i></span>' +
+                        '<p>Fuente de la imagen: '+ personaje.imagen +'</p>' +
+                      '</div>' +
+                    '</div>' +
+                  '</div>';
+        }
+        document.getElementById("resultados").innerHTML = html;
+
     }).catch(err => {
         console.error(err);
     });

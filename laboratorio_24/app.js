@@ -35,6 +35,7 @@ const users = require('./routes/users');
 //Middleware
   // Para acceder fácilmnte a los datos de las formas
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 const multer = require('multer');
 
