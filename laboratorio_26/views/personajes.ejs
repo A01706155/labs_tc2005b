@@ -1,0 +1,125 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<% if (isLoggedIn === false) { %>
+  <meta http-equiv="refresh" content="0; URL=/users/login"/>
+<% } %>
+
+  <main class="container">
+
+    <h1>Personajes</h1>
+      
+    <label for="buscar">Buscar</label>
+    <input type="hidden" id="_csrf" name="_csrf" value="<%= csrfToken %>">
+    <input type="text" name="buscar" id="buscar" onkeyup="buscar()">
+    
+    <div class=row id="resultados">
+      
+      <% for (let personaje of lista_personajes) { %>
+        <div class="col s12 m4 l3">
+          <div class="card small">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="<%= personaje.imagen %>">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"><%= personaje.nombre %><i class="material-icons right">more_vert</i></span>
+                <p><a href="#">...</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><%= personaje.nombre %><i class="material-icons right">close</i></span>
+                <p>Fuente de la imagen: <%= personaje.imagen %></p>
+              </div>
+          </div>
+        </div>
+      <% } %>
+
+    </div>
+
+    <% if (isLoggedIn === true) { %>
+      <a href="/personajes/nuevo-personaje" class="waves-effect waves-light btn red"><i class="material-icons left">add</i>Añadir personaje</a>
+    <% } %>
+
+    <p></p>
+
+    <a href="/" class="waves-effect waves-light btn green"><i class="material-icons left">arrow_back</i>Volver</a>
+    <p></p>
+    <br>
+    
+    <div class="card">
+      <div style="padding:3rem;">
+        <h4>Preguntas:</h4>
+        <br>
+        
+        <ul>
+          <li>
+            <strong>¿Qué importancia tiene AJAX en el desarrollo de RIA's (Rich Internet Applications?</strong>
+            <p>R= Cargamos de forma asíncrona información al usuario y no le detenemos el funcionamiento de la página.</p>
+          </li>
+          
+          <br>
+
+          <li>
+            <strong>¿Qué implicaciones de seguridad tiene AJAX? ¿Dónde se deben hacer las validaciones de seguridad, del lado del cliente o del lado del servidor?</strong>
+            <p>R= Los usuarios pueden meter información para crashear el servidor o manipularlo, así que las validaciones se deben de hacer tanto client-side como server-side.</p>
+          </li>
+
+          <br>
+
+          <li>
+            <strong>¿Qué es JSON?</strong>
+            <p>R= Por lo que tengo entendido es un lenguaje de programación para intercambiar datos que funciona con JavaScript y es una alternativa al tedioso XML.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+<%- include('partials/footer.ejs') %>
+
+<script>
+  function buscar() {
+    const valor_busqueda = document.getElementById('buscar').value;
+    //El token de protección CSRF
+    const csrf = document.getElementById('_csrf').value;
+
+    let data = {valor_busqueda: valor_busqueda};
+    console.log(valor_busqueda);
+    //función que manda la petición asíncrona
+    fetch('/personajes/buscar', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'csrf-token': csrf,
+            'Content-Type': 'application/json'
+          },
+    }).then(result => {
+        return result.json(); //Regresa otra promesa
+    }).then(data => {
+        //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
+        console.log(data);
+        let html = '';
+        for (let personaje of data) {
+          html += '<div class="col s12 m4 l3">' + 
+                  '<div class="card small">' + 
+                      '<div class="card-image waves-effect waves-block waves-light">' +
+                        '<img class="activator" src="'+ personaje.imagen +'">' +
+                      '</div>' +
+                      '<div class="card-content">' +
+                        '<span class="card-title activator grey-text text-darken-4">' + personaje.nombre + '<i class="material-icons right">more_vert</i></span>' +
+                        '<p><a href="#">...</a></p>' +
+                      '</div>' +
+                      '<div class="card-reveal">' +
+                        '<span class="card-title grey-text text-darken-4">'+ personaje.nombre +'<i class="material-icons right">close</i></span>' +
+                        '<p>Fuente de la imagen: '+ personaje.imagen +'</p>' +
+                      '</div>' +
+                    '</div>' +
+                  '</div>';
+        }
+        document.getElementById("resultados").innerHTML = html;
+
+    }).catch(err => {
+        console.error(err);
+    });
+  }
+</script>

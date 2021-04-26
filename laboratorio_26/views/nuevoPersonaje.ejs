@@ -1,0 +1,24 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<% if (isLoggedIn === false) { %>
+  <meta http-equiv="refresh" content="0; URL=/users/login"/>
+<% } %>
+
+    <main class="container">
+        <h2>Añadir un nuevo personaje:</h2>
+        <form action="nuevo-personaje?_csrf=<%=csrfToken%>" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+            <label for="nombre_personaje">Nombre</label>
+            <input type="text" name="nombre">
+            <label for="imagen_personaje">Imagen</label>
+            <input type="file" name="imagen_personaje">
+            <br>
+            <br>
+            <input type="submit" class="waves-effect waves-light green btn" value="Guardar personaje">
+            <br>
+            <br>
+        </form>
+    </main>
+    
+    <%- include('partials/footer.ejs') %>
