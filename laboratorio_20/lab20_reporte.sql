@@ -386,3 +386,20 @@ FROM Proveedores P, Proyectos PR, Entregan E
 WHERE E.RFC = P.RFC and E.Numero = PR.Numero
 and Denominacion = 'Educando en Coahuila')
 order by M.Precio desc
+
+/*
+    En el reporte incluye la sentencia, una muestra de la salida (dos o tres renglones) y el número de renglones que SQL Server reporta al final de la consulta.
+
+    SELECT * FROM Materiales
+        Clave   Descripción     Costo
+        1000    Varilla 3/16    100.00
+        1010    Varilla 4/32    115.00
+        Total de renglones: 44
+
+    SELECT * 
+    FROM Materiales 
+    WHERE Clave =  1000
+        Total de renglones: 1
+    
+*/
+
