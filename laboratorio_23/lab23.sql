@@ -209,15 +209,11 @@ EXECUTE queryMaterial 'Lad',20
     
         El parámetro que recibe es la descripción de un material, después realiza una consulta que ve dentro de la base cuáles materiales tienen una descripción parecida con costo más grande.
 
-        1080	Ladrillos rojos	50.00	2.16
-        1090	Ladrillos grises	35.00	2.18
-
-
     Contesta en tu reporte las siguientes preguntas de reflexión:
-    1. ¿Qué ventajas tienen el utilizar Stored Procedures en una aplicación cliente-servidor?
-    R= No tienes que escribir una consulta muchas veces para alguna acción que quieras repetir, sql lo hará por ti llamando al procedure.
+        1. ¿Qué ventajas tienen el utilizar Stored Procedures en una aplicación cliente-servidor?
+        R= No tienes que escribir una consulta muchas veces para alguna acción que quieras repetir, sql lo hará por ti llamando al procedure.
 
-    2. ¿Qué ventajas tiene utilizar SP en un proyecto?
-    R= Ahorras tiempo implementando algunas funciones y de cierta manera automatizas las funciones del proyecto.
+        2. ¿Qué ventajas tiene utilizar SP en un proyecto?
+        R= Ahorras tiempo implementando algunas funciones y de cierta manera automatizas las funciones del proyecto.
 
 */
